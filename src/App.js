@@ -6,7 +6,7 @@ import './App.css'
  
 const clientID = '294cef12f775494895b0bcb9aa51b9d8';
 
-export const  App = () =>{
+function  App (){
   const [userData, setUserData] = useState(null);
 
   const loginSuccess = (userData) => {
@@ -58,3 +58,5 @@ export const  App = () =>{
     </>
   )
 }
+
+export default App
