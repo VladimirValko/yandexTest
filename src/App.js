@@ -11,12 +11,12 @@ function  App (){
 
   const handleAuthSuccess = useCallback((data) => {
     alert('Yandex auth successful:', JSON.stringify(data));
-    setUserData(data)
+    setUserData(JSON.stringify(data))
   }, []);
 
   const handleAuthError = useCallback((error) => {
-    alert('Yandex auth failed:', error);
-    setError(error)
+    alert('Yandex auth failed:', JSON.stringify(error));
+    setError(JSON.stringify(error))
   }, []);
 
   return (

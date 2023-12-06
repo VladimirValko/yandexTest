@@ -2,21 +2,18 @@ import React, { useEffect } from 'react';
 
 const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
     useEffect(() => {
-        window.YaAuthSuggest.init(
+        window.YaSendSuggestToken(
+            'https://vladimirvalko.github.io/yandexTest/',
             {
-                client_id: clientId,
-                response_type: 'token',
-                redirect_uri: redirectUri
-            },
-            'https://vladimirvalko.github.io/yandexTest/'
-        )
-        .then(({ handler }) => handler())
+               flag: true
+            }
+         )
         .then(data => {
-        alert('Authentication success:', data);
+        console.log('Authentication success:', data);
             onAuthSuccess(data);
         })
         .catch(error => {
-            alert('Authentication error:', error);
+            console.log('Authentication error:', error);
             onAuthError(error);
         });
     }, [clientId, redirectUri, onAuthSuccess, onAuthError]);
