@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import { setToken } from './authSlice';
 
 const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
-    const [token, setToken] = useState(null)
-
+    const dispatch = useDispatch()
 
     useEffect(() => {
         window.YaAuthSuggest.init({
@@ -37,7 +38,7 @@ const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
 
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <p>Yandex...{JSON.stringify(token)}</p>
+            <p>Yandex...</p>
         </div>
     );
 };
