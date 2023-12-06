@@ -1,6 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
+    const [token, setToken] = useState(null)
+
+
     useEffect(() => {
         window.YaAuthSuggest.init({
             client_id: '294cef12f775494895b0bcb9aa51b9d8',
@@ -22,6 +25,7 @@ const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
       .then(function(data) {
          console.log('Сообщение с токеном: ', data);
          alert('Сообщение с токеном: ', data);
+         setToken(data)
          document.body.innerHTML += `Сообщение с токеном: ${JSON.stringify(data)}`;
       })
       .catch(function(error) {
@@ -32,8 +36,8 @@ const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
     }, [clientId, redirectUri, onAuthSuccess, onAuthError]);
 
     return (
-        <div style={{ justifyContent: "center", alignItems: "center" }}>
-            <p>Yandex...</p>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <p>Yandex...{JSON.stringify(token)}</p>
         </div>
     );
 };
