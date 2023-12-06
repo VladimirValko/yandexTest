@@ -5,6 +5,10 @@ import { setToken } from './authSlice';
 const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
     const dispatch = useDispatch()
 
+    const sendMessage = (message) => {
+      window.ReactNativeWebView.postMessage(JSON.stringify(message));
+  }
+
     useEffect(() => {
         window.YaAuthSuggest.init({
             client_id: '294cef12f775494895b0bcb9aa51b9d8',
@@ -26,7 +30,7 @@ const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
       .then(function(data) {
          console.log('Сообщение с токеном: ', data);
          alert('Сообщение с токеном: ', data);
-         dispatch(setToken(data))
+         sendMessage(data)
          document.body.innerHTML += `Сообщение с токеном: ${JSON.stringify(data)}`;
       })
       .catch(function(error) {
