@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/yandexTest/static/css/main.f855e6bc.css",
-    "main.js": "/yandexTest/static/js/main.007f472e.js",
+    "main.js": "/yandexTest/static/js/main.ba76c7e1.js",
     "static/js/787.01bc81ed.chunk.js": "/yandexTest/static/js/787.01bc81ed.chunk.js",
     "index.html": "/yandexTest/index.html",
     "main.f855e6bc.css.map": "/yandexTest/static/css/main.f855e6bc.css.map",
-    "main.007f472e.js.map": "/yandexTest/static/js/main.007f472e.js.map",
+    "main.ba76c7e1.js.map": "/yandexTest/static/js/main.ba76c7e1.js.map",
     "787.01bc81ed.chunk.js.map": "/yandexTest/static/js/787.01bc81ed.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.007f472e.js"
+    "static/js/main.ba76c7e1.js"
   ]
 }
