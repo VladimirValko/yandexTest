@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
     useEffect(() => {
         window.YaAuthSuggest.init({
-            client_id: 'clientId',
+            client_id: '294cef12f775494895b0bcb9aa51b9d8',
             response_type: 'token',
             redirect_uri: 'https://vladimirvalko.github.io/yandexTest/'
          },
