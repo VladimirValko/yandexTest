@@ -8,11 +8,11 @@ function  App (){
   const redirectUri = 'https://vladimirvalko.github.io/yandexTest/';
 
   const handleAuthSuccess = useCallback((data) => {
-      console.log('Yandex auth successful:', data);
+    alert('Yandex auth successful:', JSON.stringify(data));
   }, []);
 
   const handleAuthError = useCallback((error) => {
-      console.error('Yandex auth failed:', error);
+    alert('Yandex auth failed:', error);
   }, []);
 
   return (

@@ -12,11 +12,11 @@ const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
         )
         .then(({ handler }) => handler())
         .then(data => {
-            console.log('Authentication success:', data);
+        alert('Authentication success:', data);
             onAuthSuccess(data);
         })
         .catch(error => {
-            console.error('Authentication error:', error);
+            alert('Authentication error:', error);
             onAuthError(error);
         });
     }, [clientId, redirectUri, onAuthSuccess, onAuthError]);
