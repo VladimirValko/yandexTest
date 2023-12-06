@@ -2,22 +2,33 @@ import React, { useEffect } from 'react';
 
 const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
     useEffect(() => {
-        window.YaAuthSuggest.init(
-            {
-                client_id: clientId,
-                response_type: 'token',
-                redirect_uri: redirectUri
-            },
-            'https://vladimirvalko.github.io/yandexTest/'
-        )
-        .then(data => {
-        alert('Authentication success:', data);
-            onAuthSuccess(data);
-        })
-        .catch(error => {
-            alert('Authentication error:', error);
-            onAuthError(error);
-        });
+        window.YaAuthSuggest.init({
+            client_id: 'clientId',
+            response_type: 'token',
+            redirect_uri: 'https://vladimirvalko.github.io/yandexTest/'
+         },
+         'https://examplesite.com', {
+            view: 'button',
+            parentId: 'container',
+            buttonView: 'main',
+            buttonTheme: 'light',
+            buttonSize: 'm',
+            buttonBorderRadius: 0
+         }
+      )
+      .then(function(result) {
+         return result.handler?.()
+      })
+      .then(function(data) {
+         console.log('Сообщение с токеном: ', data);
+         alert('Сообщение с токеном: ', data);
+         document.body.innerHTML += `Сообщение с токеном: ${JSON.stringify(data)}`;
+      })
+      .catch(function(error) {
+         console.log('Что-то пошло не так: ', error);
+         alert('Что-то пошло не так: ', error);
+         document.body.innerHTML += `Что-то пошло не так: ${JSON.stringify(error)}`;
+      });
     }, [clientId, redirectUri, onAuthSuccess, onAuthError]);
 
     return (
