@@ -7,7 +7,7 @@ const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
             response_type: 'token',
             redirect_uri: 'https://vladimirvalko.github.io/yandexTest/'
          },
-         'https://examplesite.com', {
+         'https://vladimirvalko.github.io/yandexTest/', {
             view: 'button',
             parentId: 'container',
             buttonView: 'main',
