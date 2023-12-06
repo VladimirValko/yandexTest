@@ -25,20 +25,20 @@ const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
          }
       )
       .then(function(result) {
-         return result.handler?.()
+         sendMessage("lalalalal from webview number 1")
+         return result.handler()
+
       })
       .then(function(data) {
-         console.log('Сообщение с токеном: ', data);
-         alert('Сообщение с токеном: ', data);
          sendMessage(data)
-         document.body.innerHTML += `Сообщение с токеном: ${JSON.stringify(data)}`;
+         sendMessage("lalalalal from webview number 2")
       })
       .catch(function(error) {
          console.log('Что-то пошло не так: ', error);
          alert('Что-то пошло не так: ', error);
          document.body.innerHTML += `Что-то пошло не так: ${JSON.stringify(error)}`;
       });
-    }, [clientId, redirectUri, onAuthSuccess, onAuthError]);
+    }, []);
 
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
