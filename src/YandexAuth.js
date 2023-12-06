@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux'
 import { setToken } from './authSlice';
 
 const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
@@ -26,7 +26,7 @@ const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
       .then(function(data) {
          console.log('Сообщение с токеном: ', data);
          alert('Сообщение с токеном: ', data);
-         setToken(data)
+         dispatch(setToken(data))
          document.body.innerHTML += `Сообщение с токеном: ${JSON.stringify(data)}`;
       })
       .catch(function(error) {
