@@ -12,7 +12,6 @@ function  App (){
   // TODO попробовать завязать юзэффект на токене и прокидывать сообщение
   // в приложение по изменению токена
   // токен можно попробовать достать из урла
-  const token = useSelector((state) => state?.auth?.token)
 
   const handleAuthSuccess = useCallback((data) => {
     alert('Yandex auth successful:', JSON.stringify(data));
@@ -21,6 +20,8 @@ function  App (){
   const handleAuthError = useCallback((error) => {
     alert('Yandex auth failed:', JSON.stringify(error));
   }, []);
+
+  const params = new URLSearchParams(window.location.pathname);
 
   return (
     <>
@@ -32,6 +33,7 @@ function  App (){
         onAuthError={handleAuthError}
         setUserData={setUserData}
         userData={userData}
+        params={params}
       />
     </>
   );

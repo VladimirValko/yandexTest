@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { setToken } from './authSlice';
 
-const YandexAuth = ({ setUserData, userData }) => {
+const YandexAuth = ({ setUserData, userData, params }) => {
     const dispatch = useDispatch()
 
     const sendMessage = (message) => {
@@ -45,7 +45,7 @@ const YandexAuth = ({ setUserData, userData }) => {
 
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <p>Yandex {userData}...</p>
+            <p>Yandex {params}...</p>
         </div>
     );
 };
