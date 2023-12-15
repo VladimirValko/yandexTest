@@ -26,15 +26,17 @@ const YandexAuth = ({ setUserData, userData, params }) => {
          }
       )
       .then(function(result) {
-         sendMessage("lalalalal from webview number 1")
+         const params1 = new URLSearchParams(window.location.pathname);
+         sendMessage(`${params1} params1`)
          return result.handler()
 
       })
       .then(function(data) {
          setUserData(data)
          sendMessage(data)
+         const params2 = new URLSearchParams(window.location.pathname);
          alert(`${JSON.stringify(data)}`)
-         sendMessage("lalalalal from webview number 2")
+         sendMessage(`${params2} params2`)
       })
       .catch(function(error) {
          console.log('Что-то пошло не так: ', error);
@@ -45,6 +47,8 @@ const YandexAuth = ({ setUserData, userData, params }) => {
 
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <p>Yandex {params}...</p>
+            <p>Yandex {params}...</p>
             <p>Yandex {params}...</p>
         </div>
     );
