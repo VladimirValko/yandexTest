@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { setToken } from './authSlice';
 
-const YandexAuth = ({ setUserData }) => {
+const YandexAuth = ({ setUserData, userData }) => {
     const dispatch = useDispatch()
 
     const sendMessage = (message) => {
@@ -18,11 +18,21 @@ const YandexAuth = ({ setUserData }) => {
          },
          'https://vladimirvalko.github.io/yandexTest/'
       )
-      .then(({
-         handler
-      }) => handler())
-      .then(data => console.log('Сообщение с токеном', data))
-      .catch(error => console.log('Обработка ошибки', error));
+      .then(function(result) {
+         sendMessage("lalalalal from webview number 1")
+         alert(`${JSON.stringify(result)}`)
+            return result.handler()
+         })
+      .then(data => {
+         sendMessage("lalalalal from webview number 2")
+         console.log('Сообщение с токеном', data)
+         setUserData(data)
+         alert(`${JSON.stringify(data)}`)
+      })
+      .catch(error => {
+         console.log('Обработка ошибки', error)
+         sendMessage("catch, some error happened")
+      });
       //   ({
       //       client_id: '294cef12f775494895b0bcb9aa51b9d8',
       //       response_type: 'token',
@@ -57,7 +67,7 @@ const YandexAuth = ({ setUserData }) => {
 
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <p>Yandex...</p>
+            <p>Yandex {userData}...</p>
         </div>
     );
 };

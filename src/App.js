@@ -31,6 +31,7 @@ function  App (){
         onAuthSuccess={handleAuthSuccess}
         onAuthError={handleAuthError}
         setUserData={setUserData}
+        userData={userData}
       />
     </>
   );
