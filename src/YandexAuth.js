@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { setToken } from './authSlice';
 
-const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
+const YandexAuth = ({ setUserData }) => {
     const dispatch = useDispatch()
 
     const sendMessage = (message) => {
@@ -30,6 +30,7 @@ const YandexAuth = ({ clientId, redirectUri, onAuthSuccess, onAuthError }) => {
 
       })
       .then(function(data) {
+         setUserData(data)
          sendMessage(data)
          sendMessage("lalalalal from webview number 2")
       })
