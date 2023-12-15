@@ -32,6 +32,7 @@ const YandexAuth = ({ setUserData }) => {
       .then(function(data) {
          setUserData(data)
          sendMessage(data)
+         alert(`${JSON.stringify(data)}`)
          sendMessage("lalalalal from webview number 2")
       })
       .catch(function(error) {
